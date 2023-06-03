@@ -1,0 +1,165 @@
+#include "Employee.cpp"
+
+#include "DoublyLinkedQueue.cpp"
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+// declare integer queue
+
+Queue<int> queueInteger;
+
+cout<<"Enqueue postive numbers (Enter -1 to stop): \n";
+
+// read integer value to enqueue
+
+do{
+
+int intVal;
+
+cin>>intVal;
+
+if (intVal == -1){
+
+break;
+
+}
+
+queueInteger.enqueue(intVal);
+
+}while(true);
+
+cout<<"print queue: ";
+
+queueInteger.print(); // print elements of integer queue
+
+int k;
+
+cout<<"How many numbers to be removed from queue : ";
+
+cin>>k;
+
+// dequeue k elements
+
+while(k-->0 && !queueInteger.empty()){
+
+queueInteger.dequeue();
+
+}
+
+cout<<"print queue "<<k<<" elements: ";
+
+queueInteger.print(); // print element after dequeue k elements
+
+cout<<endl<<endl;
+
+// declare string queue
+
+Queue<string> queueString;
+
+cout<<"Enqueue string (Enter exit to stop): \n";
+
+// read string value
+
+do{
+
+string stringVal;
+
+cin>>stringVal;
+
+if (stringVal == "exit"){
+
+break;
+
+}
+
+queueString.enqueue(stringVal);
+
+}while(true);
+
+cout<<"print queue: ";
+
+queueString.print(); // print element of string queue
+
+cout<<"How many strings to be removed from queue : ";
+
+cin>>k;
+
+// dequeue k elements
+
+while(k-->0 && !queueString.empty()){
+
+queueString.dequeue();
+
+}
+
+cout<<"print queue "<<k<<" elements: ";
+
+queueString.print(); 
+
+cout<<endl<<endl;
+
+// declare employee queue
+
+Queue<Employee> queueEmployee;
+
+cout<<"Enter employee details to enqueue (Enter employee id 0 to stop): \n";
+
+// read and enqueue employee into queue
+
+do{
+
+string employeeName;
+
+int employeeId;
+
+string employeeDept;
+
+cout<<"Enter Employee name: ";
+
+cin>>employeeName;
+
+cout<<"Enter employee Id: ";
+
+cin>>employeeId;
+
+if (employeeId == 0){
+
+break;
+
+}
+
+cout<<"Enter employee department: ";
+
+cin>>employeeDept;
+
+Employee employeeVal(employeeName, employeeId, employeeDept);
+
+queueEmployee.enqueue(employeeVal);
+
+}while(true);
+
+cout<<"Elements in queue: ";
+
+queueEmployee.print(); // print employee queue
+
+cout<<"Enter number of value you want to dequeue from queue : ";
+
+cin>>k;
+
+// dequeue k employee from queue
+
+while(k-->0 && !queueString.empty()){
+
+queueEmployee.dequeue();
+
+}
+
+cout<<"After dequeue "<<k<<" elements: ";
+
+queueEmployee.print(); // print employee details after dequeue of k employee
+
+}
